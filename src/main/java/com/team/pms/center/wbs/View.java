@@ -9,6 +9,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.team.pms.employee.repository.EmployeeDAO;
+import com.team.pms.employee.repository.EmployeeDTO;
 
 @WebServlet("/center/wbs/view.do")
 public class View extends HttpServlet {
@@ -25,6 +29,19 @@ public class View extends HttpServlet {
       
       
       req.setAttribute("list", list);
+      
+      
+
+		HttpSession session = req.getSession();
+		
+		String employeeSeq = (String) session.getAttribute("employeeSeq");
+
+		EmployeeDAO daov = new EmployeeDAO();
+		EmployeeDTO dto = daov.myInfo(employeeSeq);
+		
+		req.setAttribute("name", dto.getName());
+		req.setAttribute("position", dto.getPosition());
+		req.setAttribute("teamname", dto.getTeamName());
       
       
       

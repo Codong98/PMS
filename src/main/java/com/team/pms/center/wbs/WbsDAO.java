@@ -17,7 +17,7 @@ public class WbsDAO {
 
 
    public WbsDAO() {
-      conn =  DBUtil.open("localhost","team","java1234");
+      conn =  DBUtil.open("localhost","pms","java1234");
    }
 
 
@@ -63,6 +63,97 @@ public class WbsDAO {
       
       return null;
    }
+
+
+public List<WbsDTO> getChart(String employeeSeq) {
+   try {
+
+        String sql = "select * from wbs where employeeseq = ?";
+
+        pstat = conn.prepareStatement(sql);
+
+        pstat.setString(1, employeeSeq);
+
+        rs = pstat.executeQuery();
+
+        List<WbsDTO> list = new ArrayList<WbsDTO>();
+
+        while (rs.next()) {
+
+           WbsDTO dto = new WbsDTO();
+
+           dto.setWname(rs.getString("wbsname"));
+           dto.setPercent(rs.getString("percent"));
+
+           list.add(dto);
+        }
+
+        return list;
+
+     } catch (Exception e) {
+        e.printStackTrace();
+     }
+   return null;
+}
+
+
+
+
+
+public int getMyChart(String employeeseq) {
+
+      try {
+
+         String sql = "select count(*) as cnt from wbs where employeeseq = ?";
+
+         pstat = conn.prepareStatement(sql);
+
+         pstat.setString(1, employeeseq);
+
+         rs = pstat.executeQuery();
+
+         if (rs.next()) {
+
+            return rs.getInt("cnt");
+         }
+
+      } catch (Exception e) {
+         e.printStackTrace();
+      }
+   
+   
+   return 0;
+}
+
+
+public int gethundred(String employeeseq) {
+
+   
+   try {
+
+      String sql = "select count(*) as cnt from wbs w\r\n"
+            + "inner join employee e\r\n"
+            + "on w.employeeseq = e.employeeseq\r\n"
+            + "where e.employeeseq =  ? and percent = 100";
+
+      pstat = conn.prepareStatement(sql);
+
+      pstat.setString(1, employeeseq);
+
+      rs = pstat.executeQuery();
+
+      if (rs.next()) {
+
+         return rs.getInt("cnt");
+      }
+
+   } catch (Exception e) {
+      e.printStackTrace();
+   }
+   
+   
+   return 0;
+}
    
    
    

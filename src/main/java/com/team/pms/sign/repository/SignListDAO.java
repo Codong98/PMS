@@ -19,7 +19,7 @@ public class SignListDAO {
 	private ResultSet rs;
 	
 	public SignListDAO() {
-		this.conn = DBUtil.open("localhost","team","java1234");
+		this.conn = DBUtil.open("localhost","pms","java1234");
 	}
 	
 	

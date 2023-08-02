@@ -10,7 +10,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="/pms/asset/css/commnon.css">
+<link rel="stylesheet" href="/pms/asset/css/common.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 
@@ -236,63 +236,34 @@ width: 0px;
   margin: 1em auto;
 }
 
+#sidebar {
+height: 1500px;
+}
+
+<!-- 테두리 지우기 -->
+
+#content > div:nth-child(4) > table > tbody > tr > td {
+	border: none;
+}
+
+#gant {
+	width: 1000px;
+}
+
+
+#content > div:nth-child(4) > table {
+	border: none;
+}
+
+#content > div:nth-child(4) > table > tbody > tr > td {
+border: 0px;
+}
+
 </style>
 </head>
 <body>
     <div id="container">
-        <div id="sidebar">
-            
-            <p style="font-size: 23px; font-weight: bold; text-align: center;">
-            J<span style="color: #9DB2BF;">D</span>S<span style="color: #9DB2BF;">C</span> Company
-            </p>
-           
-           
-            <br>
-            <div id="info">${name}(${position}) / ${teamname }</div>
-     <!--        <button type="button" class="btn btn-light btn-sm">로그아웃</button>
-            <br> -->
-           
-            <ul class="sideMenu">
-                <li><a href="#"><span class="material-symbols-outlined">
-dashboard
-</span> 메인 대시보드</a></li>
-                <li><a href="#"><span class="material-symbols-outlined">
-hub
-</span> 프로젝트 센터</a></li>
-                <li class="manage"><a href="#"><span class="material-symbols-outlined">
-stress_management
-</span> 작업 관리</a>
-                    <ul class="manageDetail">
-                        <li class="smwork"><a href="#"><span class="material-symbols-outlined">
-group
-</span> 내 작업</a></li>
-                        <li class="smwork"><a href="#"><span class="material-symbols-outlined">
-diversity_3
-</span> 일반 작업</a></li>
-                        <li class="smwork"><a href="#"><span class="material-symbols-outlined">
-calendar_month
-</span> 일정 관리</a></li>
-                    </ul>
-                </li>
-                <li><a href="#"><span class="material-symbols-outlined">
-draw
-</span> 결재 안건 관리</a></li>
-                <li><a href="#"><span class="material-symbols-outlined">
-sticky_note_2
-</span> 공지 사항</a></li>
-<li><a href="/pms/issue/issuelist.do"><span class="material-symbols-outlined">
-check_circle
-</span> 이슈 관리</a></li>
-                <li><a href=""><span class="material-symbols-outlined">
-app_registration
-</span> 사원 등록</a></li>
-                <li><a href="#"><span class="material-symbols-outlined">
-assignment_ind
-</span> 마이페이지</a></li>
-            </ul>
-             <button type="button" class="btn btn-light btn-sm"  onclick="location.href='/pms/employee/login.do';">로그아웃</button>
-            <br>
-        </div>
+        <%@ include file="/WEB-INF/views/inc/sidebar.jsp" %>
 
         <div id="content">
         <h2> &nbsp; 프로젝트 센터 > WBS</h2>
@@ -300,12 +271,12 @@ assignment_ind
             <div id="topMenu">
                 <table>
                     <tr class="tbTop">
-                        <td><a href="/pms/issue/issuelist.do">프로젝트 목록</a></td>
-                        <td><a href="/pms/issue/issueadd.do">상세정보 등록</a></td>
-                        <td><a href="/pms/issue/issueadd.do">WBS</a></td>
-                        <td><a href="/pms/issue/issueadd.do">이슈</a></td>
-                        <td><a href="/pms/issue/issueadd.do">산출물</a></td>
-                        
+                        <td><a href="/pms/center/project/projectlist.do">프로젝트 목록</a></td>
+                        <td><a href="/pms/center/project/projectdetail.do?projectSeq=${dto.projectseq}">상세정보</a></td>
+                        <td><a href="/pms/center/wbs/view.do">WBS</a></td>
+                        <td><a href="/pms/center/issue/cissuelist.do?pjseq=${dto.projectseq}">이슈</a></td>
+                  <td><a href="/pms/center/product/cproductlist.do?pjseq=${dto.projectseq}">산출물</a></td>
+                  <td><a href="/pms/center/version/versionlist.do?pjseq=${dto.projectseq}">버전</a></td>
                     </tr>
                     <tr class="tbMid">
                         <td></td>
@@ -319,7 +290,7 @@ assignment_ind
     
     <table class="listtbl">
        <tr>
-       <td><div id="gant" style="width:1100px; margin-left: 50px;"></div></td>
+       <td><div id="gant" style="width:1100px; margin-left: 0px; "></div></td>
        </tr>
     </table>
    

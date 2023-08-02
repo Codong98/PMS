@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="https://me2.do/5BvBFJ57">
+
 <style>
  body{
             background-color: #27374D;
@@ -84,6 +84,18 @@
             </div>
                 <input type="submit" id="btn" value="로그인">
             </form>
+            
+            <form method="POST" action="login.do">
+      <input type="hidden" name="id" value="wogus9610">
+      <input type="hidden" name="pw" value="1111">
+      <input type="submit" value="내 로그인">
+   </form>
+   
+   <form method="POST" action="login.do">
+      <input type="hidden" name="id" value="hong">
+      <input type="hidden" name="pw" value="1111">
+      <input type="submit" value="홍길동 로그인">
+   </form>
         </div>
         </div>
     

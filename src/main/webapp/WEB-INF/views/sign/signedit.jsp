@@ -148,60 +148,7 @@ font-family: 'Noto Sans KR', sans-serif;
 </head>
 <body>
        <div id="container">
-        <div id="sidebar">
-            
-            <p style="font-size: 23px; font-weight: bold; text-align: center;">
-            J<span style="color: #9DB2BF;">D</span>S<span style="color: #9DB2BF;">C</span> Company
-            </p>
-           
-           <!-- 이미지넣을꺼면 여기에 -->
-            
-            <br>
-            <div id="info">사원명(직급) / 부서</div>
-     <!--        <button type="button" class="btn btn-light btn-sm">로그아웃</button>
-            <br> -->
-           
-            <ul class="sideMenu">
-                <li><a href="#"><span class="material-symbols-outlined">
-dashboard
-</span> 메인 대시보드</a></li>
-                <li><a href="#"><span class="material-symbols-outlined">
-hub
-</span> 프로젝트 센터</a></li>
-                <li class="manage"><a href="#"><span class="material-symbols-outlined">
-stress_management
-</span> 작업 관리</a>
-                    <ul class="manageDetail">
-                        <li class="smwork"><a href="#"><span class="material-symbols-outlined">
-group
-</span> 내 작업</a></li>
-                        <li class="smwork"><a href="#"><span class="material-symbols-outlined">
-diversity_3
-</span> 일반 작업</a></li>
-                        <li class="smwork"><a href="#"><span class="material-symbols-outlined">
-calendar_month
-</span> 일정 관리</a></li>
-                    </ul>
-                </li>
-                <li><a href="#"><span class="material-symbols-outlined">
-draw
-</span> 결재 안건 관리</a></li>
-				<li><a href="#"><span class="material-symbols-outlined">
-check_circle
-</span> 이슈 관리</a></li>
-                <li><a href="#"><span class="material-symbols-outlined">
-sticky_note_2
-</span> 공지 사항</a></li>
-                <li><a href="#"><span class="material-symbols-outlined">
-app_registration
-</span> 사원 등록</a></li>
-                <li><a href="#"><span class="material-symbols-outlined">
-assignment_ind
-</span> 마이페이지</a></li>
-            </ul>
-             <button type="button" class="btn btn-light btn-sm">로그아웃</button>
-            <br>
-        </div>
+        <%@ include file="/WEB-INF/views/inc/sidebar.jsp" %>
 
         <div id="content">
         	<p>&nbsp결재 안건 관리 > 결재 안건 수정</p>
@@ -209,11 +156,8 @@ assignment_ind
             <div id="topMenu">
                 <table>
                     <tr class="tbTop">
-                        <td><a href="#">프로젝트 목록</a></td>
-                        <td><a href="#">상세정보</a></td>
-                        <td><a href="#">WBS</a></td>
-                        <td><a href="#">이슈</a></td>
-                        <td><a href="#">산출물</a></td>
+                        <td><a href="/pms/sign/signlist.do">결재 목록</a></td>
+                        <td><a href="/pms/sign/signadd.do">결재 등록</a></td>
                     </tr>
 <!--                     <tr class="tbMid"> -->
 <!--                         <td colspan="5" style="text-align: right;background-color: transparent;border: none;"> -->

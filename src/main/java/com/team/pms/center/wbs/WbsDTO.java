@@ -21,5 +21,6 @@ public class WbsDTO {
    private Date pstartdate;
    private Date penddate;
    private String pname;
+   private int count;
    
 }

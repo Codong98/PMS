@@ -19,6 +19,7 @@ public class EmployeeDTO {
 	private String teamSeq;
 
 	private String teamName;
+	private String noticetype;
 //	employeeSeq NUMBER NOT NULL PRIMARY KEY, /* 직원번호 */
 //	name VARCHAR2(15) NOT NULL, /* 이름 */
 //	tel VARCHAR2(50) NOT NULL, /* 연락처 */
